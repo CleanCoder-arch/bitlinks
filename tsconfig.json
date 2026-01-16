@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/shorten/page.js", "app/api/generate/route.js", "app/[shorturl]/page.js", "components/Navbar.js", "lib/mongodb.js", "app/layout.js", "app/page.js"  ],
   "exclude": ["node_modules"]
 }
