@@ -10,29 +10,135 @@ const poppins = localFont({
 
 export default function Home() {
   return (
-    <main className="bg-purple-100">
-      <section className="grid grid-cols-2 h-[50vh]">
-        <div className="flex flex-col gap-4 items-center justify-center">
-          <p className={`text-3xl font-bold ${poppins.className}`}>
+    <main className="bg-gradient-to-br from-purple-100 to-purple-200 min-h-screen overflow-y-auto scroll-smooth">
 
+      {/* FIXED NAVBAR */}
+      <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
+        <nav className="max-w-7xl mx-auto px-10 h-16 flex items-center justify-between">
+          <h1 className="flex items-center gap-2 text-2xl font-bold text-purple-700">
+            <Image
+              src="/logobitlinks.png"   // place logo in /public/logo.png
+              alt="Bitlinks Logo"
+              width={32}
+              height={32}
+              className="object-contain opacity-0.2"
+            />
+            BitLinks
+          </h1>
+
+          <div className="flex gap-6 text-gray-700 font-medium">
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+          </div>
+          <div className="flex gap-4">
+            <Link href="/shorten">
+              <button className="bg-purple-600 hover:bg-purple-700 transition-all duration-300 rounded-xl shadow-lg px-6 py-2 font-semibold text-white">
+                Try Now
+              </button>
+            </Link>
+
+            <Link href="/github">
+              <button className="bg-white border border-purple-600 text-purple-700 hover:bg-purple-50 transition-all duration-300 rounded-xl shadow-md px-6 py-2 font-semibold">
+                Github
+              </button>
+            </Link>
+          </div>
+        </nav>
+      </header>
+
+      {/* HERO SECTION */}
+      <section className="grid grid-cols-2 min-h-screen max-w-7xl mx-auto px-10 pt-24">
+        <div className="flex flex-col gap-6 items-start justify-center">
+          <p
+            className={`text-4xl lg:text-5xl font-extrabold text-purple-800 leading-tight ${poppins.className}`}
+          >
             The best URL shortner in the market
           </p>
-          <p className="px-56 text-center">
-            We are the most straightforward URL shortner in the world. Most of the URL shortners will track you or ask you to give your details for login. We understand your needs and hence have created this URL Shortner
+
+          <p className="text-gray-700 max-w-xl leading-relaxed">
+            We are the most straightforward URL shortner in the world. Most URL
+            shortners track users or require personal details. Bitlinks keeps
+            everything simple, private, and fast.
           </p>
-          <div className='flex gap-3 justify-start'>
-            <Link href="/shorten"><button className='bg-purple-500 rounded-lg shadow-lg p-3 py-1 font-bold text-white'>Try Now</button></Link>
-            <Link href="/github"><button className='bg-purple-500 rounded-lg shadow-lg p-3 py-1 font-bold text-white'>Github</button></Link>
+
+          <div className="flex gap-4">
+            <Link href="/shorten">
+              <button className="bg-purple-600 hover:bg-purple-700 transition-all duration-300 rounded-xl shadow-lg px-6 py-2 font-semibold text-white">
+                Try Now
+              </button>
+            </Link>
+
+            <Link href="/shorten">
+              <button className="bg-white border border-purple-600 text-purple-700 hover:bg-purple-50 transition-all duration-300 rounded-xl shadow-md px-6 py-2 font-semibold">
+                Explore
+              </button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="flex justify-center items-center relative">
+          <Image
+            className="mix-blend-darken object-contain rounded-3xl transition-transform duration-700 hover:scale-105"
+            alt="An Image of a dove"
+            src={"/dove.png"}
+            fill
+            priority
+          />
+        </div>
+      </section>
+
+      {/* SCROLL CONTENT */}
+      <section className="min-h-screen max-w-7xl mx-auto px-10 py-20">
+        <div className="grid grid-cols-3 gap-8">
+          <div className="bg-white rounded-2xl shadow-lg p-6">
+            <h3 className="text-xl font-bold text-purple-700 mb-2">Fast</h3>
+            <p className="text-gray-600">
+              Create short links instantly with lightning-fast performance.
+            </p>
           </div>
 
+          <div className="bg-white rounded-2xl shadow-lg p-6">
+            <h3 className="text-xl font-bold text-purple-700 mb-2">Private</h3>
+            <p className="text-gray-600">
+              No tracking, no login, no unnecessary data collection.
+            </p>
+          </div>
 
+          <div className="bg-white rounded-2xl shadow-lg p-6">
+            <h3 className="text-xl font-bold text-purple-700 mb-2">Reliable</h3>
+            <p className="text-gray-600">
+              Built with modern tech to scale effortlessly.
+            </p>
+          </div>
         </div>
-        <div className="flex justify-start relative">
-          <Image className="mix-blend-darken
-          object-cover rounded-3xl transition-transform duration-600 hover:scale-105" alt="An Image of a dove" src={"/dove.png"} fill={true} />
-        </div>
-
       </section>
+
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+<div className="flex gap-4">
+  <Link href="/shorten">
+    <button className="bg-purple-600 hover:bg-purple-700 transition-all duration-300 rounded-xl shadow-lg px-6 py-2 font-semibold text-white">
+      Try Now
+    </button>
+  </Link>
+
+  <Link href="/github">
+    <button className="bg-white border border-purple-600 text-purple-700 hover:bg-purple-50 transition-all duration-300 rounded-xl shadow-md px-6 py-2 font-semibold">
+      Github
+    </button>
+  </Link>
+</div>

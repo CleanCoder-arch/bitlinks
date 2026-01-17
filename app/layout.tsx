@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import localFont from "next/font/local"
 import Shorten from "@/app/shorten/page";
+import AboutPage from "./about/page";
+import ContactPage from "./contact/page";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -15,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bitlinks - Your Trusted URL Shortner",
-  description: "Bitlinks helps you shorten your URL's easily ",
+  title: "BitLinks - Your Trusted URL Shortner",
+  description: "BitLinks helps you shorten your URL's easily ",
 };
 
 export default function RootLayout({
