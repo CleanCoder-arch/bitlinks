@@ -3,17 +3,29 @@ import { NextResponse } from "next/server"
 
 export const runtime = "nodejs"
 
+interface UrlPayload {
+  url: string
+  shorturl: string
+}
+
 export async function POST(request: Request) {
   try {
-    const body = await request.json()
+    const body: UrlPayload = await request.json()
+
+    if (!body.url || !body.shorturl) {
+      return NextResponse.json(
+        { success: false, error: true, message: "Missing fields" },
+        { status: 400 }
+      )
+    }
 
     const client = await clientPromise
     const db = client.db("bitlinks")
     const collection = db.collection("url")
 
-    // Check if short URL already exists
-    const doc = await collection.findOne({ shorturl: body.shorturl })
+    const shorturl = body.shorturl.toLowerCase()
 
+    const doc = await collection.findOne({ shorturl })
     if (doc) {
       return NextResponse.json({
         success: false,
@@ -24,7 +36,8 @@ export async function POST(request: Request) {
 
     await collection.insertOne({
       url: body.url,
-      shorturl: body.shorturl,
+      shorturl,
+      createdAt: new Date(),
     })
 
     return NextResponse.json({
