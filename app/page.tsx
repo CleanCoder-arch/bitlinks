@@ -10,7 +10,7 @@ const poppins = localFont({
 
 export default function Home() {
   return (
-    <main className="bg-gradient-to-br from-purple-100 to-purple-200 min-h-screen overflow-y-auto scroll-smooth">
+    <main className="bg-linear-to-br from-purple-100 to-purple-200 min-h-screen overflow-y-auto scroll-smooth">
 
       {/* FIXED NAVBAR */}
       <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-sm">
